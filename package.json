@@ -13,7 +13,10 @@
     "body-parser": "~1.5.2",
     "method-override": "~2.1.2",
     "request": "2.69.0",
-    "xml2json": "0.9.0"
+    "xml2json": "0.9.0",
+    "backbone": "1.2.3",
+    "underscore": "1.8.3",
+    "jquery": "2.2.0"
   },
   "scripts": {
     "start": "watchify -o public/js/bundle.js -v -d public/js/app.js",

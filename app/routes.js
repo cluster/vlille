@@ -10,16 +10,18 @@ module.exports = function(app) {
   //listing stations
   app.get('/api/stations', function(req, res){
     request('http://vlille.fr/stations/xml-stations.aspx', function (error, response, body) {
-      var json = parser.toJson(body);
-      res.json(json);
+      var json = parser.toJson(body, {object:true});
+      if(json.markers.marker)
+        res.json(json.markers.marker);
     });
   });
 
   //get station by id
   app.get('/api/stations/:id', function(req, res){
     request('http://vlille.fr/stations/xml-station.aspx?borne='+req.params.id, function (error, response, body) {
-      var json = parser.toJson(body);
-      res.json(json);
+      var json = parser.toJson(body, {object: true});
+      if(json.station)
+      res.json(json.station);
     });
   });
 }
